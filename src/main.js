@@ -39,12 +39,29 @@ var Sudoku = React.createClass({
     };
   },
   componentDidMount: function() {
+    this.new();
   },
   updateCell: function(i, j, e) {
     var game = this.state.game;
     var urls = this.state.urls;
     game[i][j] = e.currentTarget.value;
     this.setState({game, urls});
+  },
+  new: function() {
+    xhr(
+      {
+        uri: this.state.urls.generator,
+        method: 'GET'
+      },
+      (err, resp, body) => {
+        if (err) {
+          alert(err);
+        } else {
+          var res = JSON.parse(body);
+          this.setState({game:res.puzzle, urls: this.state.urls});
+        }
+      }
+    );
   },
   solve: function() {
     xhr(
@@ -62,7 +79,7 @@ var Sudoku = React.createClass({
         if (err) {
           alert(err);
         } else {
-          this.setState({game:body});
+          this.setState({game:body, urls:this.state.urls});
         }
       }
     );
@@ -110,7 +127,7 @@ var Sudoku = React.createClass({
             )}
           </tbody>
         </table>
-        <button className="btn new">New Game</button>
+        <button className="btn new" onClick={this.new}>New Game</button>
         <button className="btn solve" onClick={this.solve}>Solve</button>
       </div>
     );
