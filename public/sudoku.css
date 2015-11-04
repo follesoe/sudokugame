@@ -1,0 +1,73 @@
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input
+{
+  color: white;
+  font-size: 14px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: solid 2px #FD5158;
+  background-color: transparent;
+  padding-bottom: 4px;
+}
+
+label > input {
+  width: 200px;
+}
+
+h1 {
+  margin-top: 12px;
+  color: #BBB0A3;
+}
+
+#game {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.new, .solve {
+  margin-top: 6px;
+  width: 45%;
+}
+
+.new {
+  float: left;
+}
+
+.solve {
+  float: right;
+}
+
+input[type=number]
+{
+    -moz-appearance: textfield;
+    color: white;
+    background-color: #36BDB2;
+    border: none;
+
+    text-align: center;
+    font-size: 24px;
+    padding: 6px;
+    margin: 1px;
+}
+
+td {
+  padding: 1px;
+}
+
+label {
+  width: 100%;
+  display: block;
+}
+
+label input {
+  margin-left: 12px;
+  float: right;
+}
