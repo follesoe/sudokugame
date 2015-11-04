@@ -65,7 +65,6 @@ var Sudoku = React.createClass({
               }
             }
           }
-          console.log(res);
           this.setState({game:res.puzzle, urls: this.state.urls});
         }
       }
