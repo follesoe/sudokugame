@@ -39,7 +39,7 @@ var Sudoku = React.createClass({
     };
   },
   componentDidMount: function() {
-    this.new();
+    //this.new();
   },
   updateCell: function(i, j, e) {
     var game = this.state.game;
@@ -58,6 +58,14 @@ var Sudoku = React.createClass({
           alert(err);
         } else {
           var res = JSON.parse(body);
+          for (var i = 0; i < res.puzzle.length; ++i) {
+            for (var j = 0; j < res.puzzle[i].length; ++j) {
+              if (res.puzzle[i][j] !== "?") {
+                res.puzzle[i][j] = parseInt(res.puzzle[i][j]);
+              }
+            }
+          }
+          console.log(res);
           this.setState({game:res.puzzle, urls: this.state.urls});
         }
       }
